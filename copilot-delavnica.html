@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Delavnica – 1+1 Gratis | Skupina stroka.si</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #50afb0;
+            --teal-dark: #3d8c8d;
+            --teal-light: #e8f6f6;
+            --red: #e35c4f;
+            --red-dark: #c44a3d;
+            --red-light: #fdf0ee;
+            --black: #111111;
+            --dark: #222222;
+            --mid: #555555;
+            --light: #888888;
+            --border: #e0e0e0;
+            --bg: #f7f7f7;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ── TOPBAR ── */
+        .topbar {
+            background: var(--black);
+            padding: 12px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topbar img { height: 30px; }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .topbar-contact {
+            font-size: 13px;
+            color: rgba(255,255,255,0.65);
+        }
+        .topbar-contact a { color: var(--teal); text-decoration: none; }
+        .topbar-cta {
+            background: var(--red);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .topbar-cta:hover { background: var(--red-dark); }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--teal);
+            position: relative;
+            overflow: hidden;
+            padding: 70px 40px 60px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: 5%;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(0,0,0,0.07) 0%, transparent 65%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Big promo badge */
+        .promo-badge {
+            background: var(--red);
+            color: white;
+            border-radius: 16px;
+            padding: 28px 36px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(227,92,79,0.4);
+            min-width: 220px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .promo-badge::before {
+            content: '★ AKCIJA ★';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .promo-big {
+            font-family: 'DM Serif Display', serif;
+            font-size: 4.5rem;
+            line-height: 1;
+            font-weight: 400;
+            color: white;
+            letter-spacing: -2px;
+        }
+        .promo-big span { color: rgba(255,255,255,0.7); font-size: 3rem; }
+        .promo-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .promo-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            margin: 12px auto;
+        }
+        .promo-price-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .promo-old {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.55);
+        }
+        .promo-new {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+        }
+        .promo-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 6px;
+        }
+
+        /* Hero left */
+        .hero-left {}
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.15);
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            line-height: 1.15;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.82);
+            max-width: 540px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .hero-chip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 7px;
+            padding: 9px 16px;
+            font-size: 13.5px;
+            color: white;
+            font-weight: 500;
+        }
+        .hero-chip.deadline {
+            background: rgba(227,92,79,0.35);
+            border-color: rgba(227,92,79,0.6);
+            color: #ffd0cc;
+            font-weight: 700;
+        }
+
+        /* Mobile CTA button in hero */
+        .hero-mobile-cta {
+            display: none;
+            margin-top: 24px;
+        }
+        .btn-hero-cta {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(227,92,79,0.4);
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .page-body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* ── CONTENT LEFT ── */
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 16px;
+        }
+        .content h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.85rem;
+            color: var(--black);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+        .content > .lead {
+            font-size: 1rem;
+            color: var(--mid);
+            margin-bottom: 36px;
+            line-height: 1.75;
+        }
+
+        /* What you learn */
+        .learn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 50px;
+        }
+        .learn-card {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid var(--teal);
+            transition: box-shadow 0.2s;
+        }
+        .learn-card:hover {
+            box-shadow: 0 4px 16px rgba(80,175,176,0.12);
+        }
+        .learn-icon {
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .learn-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .learn-card p {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.5;
+        }
+
+        /* Benefits */
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid var(--border);
+        }
+        .benefit-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--teal-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+        .benefit-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+        .benefit-item p {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.5;
+        }
+
+        /* Pricing info block */
+        .pricing-block {
+            background: linear-gradient(135deg, var(--red-light) 0%, #fff 60%);
+            border: 1.5px solid #f5bdb8;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 50px;
+        }
+        .pricing-block h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+        .pricing-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .pricing-option {
+            background: white;
+            border-radius: 10px;
+            padding: 18px;
+            border: 1.5px solid var(--border);
+            text-align: center;
+        }
+        .pricing-option.featured {
+            border-color: var(--red);
+            position: relative;
+        }
+        .pricing-option.featured::before {
+            content: 'Priporočeno';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+        .pricing-option .opt-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--mid);
+            margin-bottom: 10px;
+        }
+        .pricing-option .opt-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 400;
+        }
+        .pricing-option .opt-price .currency {
+            font-size: 1rem;
+            color: var(--mid);
+        }
+        .pricing-option .opt-old {
+            font-size: 12px;
+            color: var(--light);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+        .pricing-option .opt-desc {
+            font-size: 12px;
+            color: var(--mid);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        .pricing-deadline {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--red-dark);
+            font-weight: 600;
+            text-align: center;
+        }
+        .pricing-deadline span {
+            background: var(--red-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Location */
+        .location-block {
+            margin-bottom: 50px;
+        }
+        .location-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .loc-card {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1.5px solid var(--border);
+        }
+        .loc-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .loc-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .loc-card p {
+            font-size: 12.5px;
+            color: var(--mid);
+            line-height: 1.5;
+        }
+
+        /* ── FORM SIDEBAR ── */
+        .form-sidebar { position: sticky; top: 80px; }
+        .form-card {
+            background: white;
+            border: 2px solid var(--teal);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(80,175,176,0.15);
+        }
+        .form-header {
+            background: var(--teal);
+            padding: 26px 28px;
+            color: white;
+        }
+        .form-header .eyebrow {
+            font-size: 11px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        .form-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.45rem;
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .form-header .sub {
+            font-size: 13px;
+            opacity: 0.82;
+        }
+        .form-promo-strip {
+            background: var(--red);
+            padding: 10px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+        }
+        .form-body { padding: 24px 28px 28px; }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .form-group label .req { color: var(--red); }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: white;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(80,175,176,0.12);
+        }
+        .form-group input.error,
+        .form-group select.error { border-color: var(--red); }
+        .error-msg {
+            font-size: 12px;
+            color: var(--red);
+            margin-top: 5px;
+            display: none;
+        }
+        .input-error .error-msg { display: block; }
+
+        .form-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0;
+        }
+        .form-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--light);
+            margin-bottom: 14px;
+        }
+
+        /* Pricing choice in form */
+        .price-choice {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .price-opt-label {
+            position: relative;
+            cursor: pointer;
+        }
+        .price-opt-label input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+        }
+        .price-opt-box {
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: center;
+            transition: border-color 0.2s, background 0.2s;
+            background: white;
+        }
+        .price-opt-label input[type="radio"]:checked + .price-opt-box {
+            border-color: var(--red);
+            background: var(--red-light);
+        }
+        .price-opt-box .opt-head {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        .price-opt-box .opt-p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--red);
+        }
+        .price-opt-box .opt-small {
+            font-size: 10.5px;
+            color: var(--light);
+            margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--red);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            margin-top: 6px;
+            box-shadow: 0 4px 16px rgba(227,92,79,0.3);
+        }
+        .btn-submit:hover {
+            background: var(--red-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(227,92,79,0.4);
+        }
+        .btn-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .form-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--light);
+            text-align: center;
+            line-height: 1.55;
+        }
+        .form-note a { color: var(--teal); }
+
+        /* Success */
+        .success-state {
+            display: none;
+            padding: 40px 28px;
+            text-align: center;
+        }
+        .success-icon {
+            width: 64px; height: 64px;
+            background: var(--teal-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--teal-dark);
+        }
+        .success-state h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.45rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        .success-state p { font-size: 14px; color: var(--mid); line-height: 1.6; }
+
+        /* Spinner */
+        .spinner {
+            display: inline-block;
+            width: 15px; height: 15px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── SPONSOR & FOOTER ── */
+        .sponsor-section {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 36px 40px;
+        }
+        .sponsor-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .sponsor-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--light);
+        }
+        .sponsor-logo {
+            height: 26px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .sponsor-logo:hover { opacity: 1; }
+
+        .site-footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.55);
+            padding: 36px 40px;
+            text-align: center;
+        }
+        .site-footer img { height: 26px; margin-bottom: 14px; }
+        .site-footer p { font-size: 13px; margin: 4px 0; }
+        .site-footer a { color: var(--teal); text-decoration: none; }
+        .site-footer .copy { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 10px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1000px) {
+            .page-body {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 24px;
+            }
+            .form-sidebar { position: static; order: -1; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .promo-badge { display: none; }
+            .hero-mobile-cta { display: block; }
+            .hero { padding: 50px 24px; }
+            .topbar { padding: 12px 24px; }
+            .topbar-contact { display: none; }
+        }
+        @media (max-width: 640px) {
+            .learn-grid { grid-template-columns: 1fr; }
+            .pricing-options { grid-template-columns: 1fr; }
+            .location-options { grid-template-columns: 1fr; }
+            .price-choice { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <a href="https://www.stroka.si" target="_blank">
+        <img src="https://www.stroka.si/Portals/_default/logo_stroka_si_white.png?ver=2025-06-04-113611-483&timestamp=1749029751774" alt="Stroka.si">
+    </a>
+    <div class="topbar-right">
+        <div class="topbar-contact">
+            <a href="mailto:ccc@stroka.si">ccc@stroka.si</a> &nbsp;|&nbsp; +386 (0)2 88 79 780
+        </div>
+        <a href="#form-anchor" class="topbar-cta">Prijavite se →</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-left">
+            <div class="hero-eyebrow">🤖 Delavnica Microsoft Copilot</div>
+            <h1>Naučite se <em>zares</em> uporabljati<br>umetno inteligenco v M365</h1>
+            <p class="hero-desc">Konkretni prikazi, praktični primeri, učinkovit prompting – vse, kar potrebujete za produktivno delo s Copilotom v Outlooku, Wordu in Excelu.</p>
+            <div class="hero-chips">
+                <div class="hero-chip">📅 Razpoložljivi termini: april & maj 2026</div>
+                <div class="hero-chip">📍 Online ali v Ljubljani</div>
+                <div class="hero-chip deadline">⏰ Akcijska cena do 31. 5. 2026</div>
+            </div>
+            <div class="hero-mobile-cta">
+                <a href="#form-anchor" class="btn-hero-cta">Prijavite se na delavnico →</a>
+            </div>
+        </div>
+        <div class="promo-badge">
+            <div class="promo-big">1<span>+1</span></div>
+            <div class="promo-label">Gratis</div>
+            <div class="promo-divider"></div>
+            <div class="promo-price-wrap">
+                <span class="promo-old">199 €</span>
+                <span class="promo-new">99 €</span>
+            </div>
+            <div class="promo-sub">za 1 osebo · ali 2 osebi za 199 €</div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN BODY -->
+<div class="page-body">
+
+    <!-- LEFT CONTENT -->
+    <div class="content">
+
+        <!-- What you'll learn -->
+        <p class="section-label">Kaj boste odnesli s seboj</p>
+        <h2>Vsebina delavnice</h2>
+        <p class="lead">Delavnica je zasnovana praktično – ne teorija, ampak konkretni primeri, ki jih boste takoj lahko začeli uporabljati pri svojem delu.</p>
+
+        <div class="learn-grid">
+            <div class="learn-card">
+                <span class="learn-icon">🤖</span>
+                <h3>Kaj je Microsoft Copilot</h3>
+                <p>Razumete, kako Copilot deluje, kje so njegove meje in kje je resnično koristen za vaše delo.</p>
+            </div>
+            <div class="learn-card">
+                <span class="learn-icon">💬</span>
+                <h3>Učinkovit prompting</h3>
+                <p>Naučite se, kako pravilno postavljati vprašanja in ukaze, da dobite rezultate, ki jih zares potrebujete.</p>
+            </div>
+            <div class="learn-card">
+                <span class="learn-icon">📧</span>
+                <h3>Copilot v Outlooku</h3>
+                <p>Hitrejše pisanje e-pošte, povzetki dolgih sporočil in predlogi odgovorov – v živo.</p>
+            </div>
+            <div class="learn-card">
+                <span class="learn-icon">📄</span>
+                <h3>Copilot v Wordu</h3>
+                <p>Ustvarjanje besedil, povzemanje dokumentov in urejanje vsebine z Copilotovo pomočjo.</p>
+            </div>
+            <div class="learn-card">
+                <span class="learn-icon">📊</span>
+                <h3>Copilot v Excelu</h3>
+                <p>Analiza podatkov, ustvarjanje formul in vizualizacije – brez poglobljene tehnične znanja.</p>
+            </div>
+            <div class="learn-card">
+                <span class="learn-icon">🔒</span>
+                <h3>Varnost pri uporabi Copilota</h3>
+                <p>Kateri podatki gredo v AI, kaj ostane v vašem okolju in kako varno delati s poslovno vsebino.</p>
+            </div>
+        </div>
+
+        <!-- Benefits -->
+        <p class="section-label" style="margin-top: 50px;">Zakaj se prijaviti</p>
+        <h2>Prednosti Copilota v vašem podjetju</h2>
+        <div class="benefits-list" style="margin-top: 20px;">
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <div>
+                    <h4>Prihranek časa pri vsakodnevnih nalogah</h4>
+                    <p>Rutinska opravila – povzetki, pisanje e-pošte, urejanje dokumentov – se z Copilotom opravijo v delčku časa.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💡</div>
+                <div>
+                    <h4>Takojšnja uporabnost – brez tehničnega predznanja</h4>
+                    <p>Delavnica je zasnovana za poslovne uporabnike. Nič kodiranja, nič tehničnih pojmov – samo praktično delo.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📈</div>
+                <div>
+                    <h4>Višja produktivnost celotne ekipe</h4>
+                    <p>Ko znate Copilot pravilno uporabljati, se izboljša ne le vaše delo, ampak celotna ekipa deluje hitreje in bolj usklajeno.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🛡️</div>
+                <div>
+                    <h4>Varna in odgovorna uporaba AI</h4>
+                    <p>Razumete, katere informacije je varno deliti z AI in kako zaščititi občutljive poslovne podatke.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="pricing-block" id="pricing">
+            <h3>Akcijska ponudba</h3>
+            <div class="pricing-options">
+                <div class="pricing-option">
+                    <div class="opt-title">50 % ceneje</div>
+                    <div class="opt-old">199 €</div>
+                    <div class="opt-price"><span class="currency">€</span> 99</div>
+                    <div class="opt-desc">Za 1 osebo iz vaše organizacije</div>
+                </div>
+                <div class="pricing-option featured">
+                    <div class="opt-title">1 + 1 Gratis</div>
+                    <div class="opt-old">398 €</div>
+                    <div class="opt-price"><span class="currency">€</span> 199</div>
+                    <div class="opt-desc">Za 2 osebi iz iste organizacije</div>
+                </div>
+            </div>
+            <div class="pricing-deadline">
+                <span>⏰ Ponudba velja do 31. 5. 2026 · za največ 2 osebi iz iste organizacije</span>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <p class="section-label">Lokacija in termin</p>
+        <h2>Kje in kdaj?</h2>
+        <div class="location-options" style="margin-top: 20px;">
+            <div class="loc-card">
+                <span class="loc-icon">💻</span>
+                <h4>Online</h4>
+                <p>Delavnico lahko spremljate preko spleta. Povezavo prejmete po prijavi.</p>
+            </div>
+            <div class="loc-card">
+                <span class="loc-icon">🏢</span>
+                <h4>V živo – Ljubljana</h4>
+                <p>Skupina stroka.si<br>Ameriška ulica 8, 1000 Ljubljana<br>Kristalna palača, 9. nadstropje</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="form-sidebar" id="form-anchor">
+        <div class="form-card">
+            <div class="form-header">
+                <p class="eyebrow">Prijavite se</p>
+                <h2>Zagotovite si mesto na delavnici</h2>
+                <p class="sub">Akcijska cena · Omejeno število mest</p>
+            </div>
+            <div class="form-promo-strip">
+                🎉 1+1 Gratis &nbsp;·&nbsp; ali 50 % popust &nbsp;·&nbsp; do 31. 5. 2026
+            </div>
+            <div class="form-body" id="formBody">
+                <form id="registrationForm" novalidate>
+
+                    <div class="form-group" id="group-fullname">
+                        <label for="fullname">Ime in priimek <span class="req">*</span></label>
+                        <input type="text" id="fullname" name="fullname" placeholder="npr. Ana Novak" autocomplete="name">
+                        <div class="error-msg">Prosimo, vnesite ime in priimek.</div>
+                    </div>
+
+                    <div class="form-group" id="group-company">
+                        <label for="company">Podjetje <span class="req">*</span></label>
+                        <input type="text" id="company" name="company" placeholder="npr. Podjetje d.o.o." autocomplete="organization">
+                        <div class="error-msg">Prosimo, vnesite ime podjetja.</div>
+                    </div>
+
+                    <div class="form-group" id="group-email">
+                        <label for="email">E-mail naslov <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="npr. ana.novak@podjetje.si" autocomplete="email">
+                        <div class="error-msg">Prosimo, vnesite veljaven e-mail naslov.</div>
+                    </div>
+
+                    <div class="form-divider"></div>
+                    <div class="form-section-title">Izbira termina</div>
+
+                    <div class="form-group" id="group-datum">
+                        <label for="datum">Termin delavnice <span class="req">*</span></label>
+                        <select id="datum" name="datum">
+                            <option value="">– Izberite termin –</option>
+                            <option value="2026-04-22 Online">Sreda, 22. april 2026 – Online ali v živo (Ljubljana)</option>
+                            <option value="2026-05-14 Ljubljana">Sreda, 14. maj 2026 – Online ali v živo (Ljubljana)</option>
+                        </select>
+                        <div class="error-msg">Prosimo, izberite termin.</div>
+                    </div>
+
+                    <div class="form-divider"></div>
+                    <div class="form-section-title">Izbira paketa</div>
+
+                    <div class="price-choice">
+                        <label class="price-opt-label">
+                            <input type="radio" name="paket" value="50% – 1 oseba (99 €)" checked>
+                            <div class="price-opt-box">
+                                <div class="opt-head">50 % ceneje</div>
+                                <div class="opt-p">99 €</div>
+                                <div class="opt-small">1 oseba<br><s>199 €</s></div>
+                            </div>
+                        </label>
+                        <label class="price-opt-label">
+                            <input type="radio" name="paket" value="1+1 Gratis – 2 osebi (199 €)">
+                            <div class="price-opt-box">
+                                <div class="opt-head">1 + 1 Gratis</div>
+                                <div class="opt-p">199 €</div>
+                                <div class="opt-small">2 osebi<br><s>398 €</s></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Second person (shown if 1+1 selected) -->
+                    <div id="second-person-block" style="display:none;">
+                        <div class="form-group" id="group-fullname2">
+                            <label for="fullname2">Ime in priimek – 2. oseba <span class="req">*</span></label>
+                            <input type="text" id="fullname2" name="fullname2" placeholder="npr. Marko Novak" autocomplete="off">
+                            <div class="error-msg">Prosimo, vnesite ime in priimek druge osebe.</div>
+                        </div>
+                        <div class="form-group" id="group-email2">
+                            <label for="email2">E-mail – 2. oseba <span class="req">*</span></label>
+                            <input type="email" id="email2" name="email2" placeholder="npr. marko.novak@podjetje.si" autocomplete="off">
+                            <div class="error-msg">Prosimo, vnesite veljaven e-mail naslov druge osebe.</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        Prijavite me na delavnico
+                    </button>
+
+                    <p class="form-note">
+                        Akcijska cena velja do <strong>31. 5. 2026</strong>.<br>
+                        Po prijavi boste prejeli račun.<br>
+                        Za vprašanja: <a href="mailto:monika.kovacic@stroka.si">monika.kovacic@stroka.si</a>
+                    </p>
+                </form>
+            </div>
+            <div class="success-state" id="successState">
+                <div class="success-icon">✓</div>
+                <h3>Prijava uspešna!</h3>
+                <p>Hvala za prijavo. V kratkem vam bomo poslali račun in vse podrobnosti o delavnici.</p>
+                <p style="margin-top:12px; font-size:13px; color:#aaa;">Za vprašanja: <a href="mailto:monika.kovacic@stroka.si" style="color:var(--teal);">monika.kovacic@stroka.si</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- SPONSOR -->
+<div class="sponsor-section">
+    <div class="sponsor-inner">
+        <p class="sponsor-label">V sodelovanju z</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/3840px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft" class="sponsor-logo">
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+    <img src="https://www.stroka.si/Portals/_default/logo_stroka_si_white.png?ver=2025-06-04-113611-483&timestamp=1749029751774" alt="Stroka.si"><br>
+    <p>Skupina stroka.si, Stroka produkt d.o.o. &nbsp;|&nbsp; <a href="mailto:ccc@stroka.si">ccc@stroka.si</a> &nbsp;|&nbsp; +386 (0)2 88 79 780</p>
+    <p><a href="https://www.stroka.si" target="_blank">www.stroka.si</a></p>
+    <p class="copy">© 2026 Stroka produkt d.o.o. Vse pravice pridržane.</p>
+</div>
+
+<script>
+var SCRIPT_URL = 'POWER_AUTOMATE_URL_PLACEHOLDER';
+
+// Show/hide second person block based on package choice
+document.querySelectorAll('input[name="paket"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+        var block = document.getElementById('second-person-block');
+        if (this.value.indexOf('1+1') !== -1) {
+            block.style.display = 'block';
+        } else {
+            block.style.display = 'none';
+            document.getElementById('fullname2').value = '';
+            document.getElementById('email2').value = '';
+        }
+    });
+});
+
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function setFieldError(groupId, show) {
+    var group = document.getElementById(groupId);
+    if (!group) return;
+    var input = group.querySelector('input, select');
+    if (show) {
+        group.classList.add('input-error');
+        if (input) input.classList.add('error');
+    } else {
+        group.classList.remove('input-error');
+        if (input) input.classList.remove('error');
+    }
+}
+
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var fullname = document.getElementById('fullname').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var datum = document.getElementById('datum').value;
+    var paket = document.querySelector('input[name="paket"]:checked').value;
+
+    var isSecond = paket.indexOf('1+1') !== -1;
+    var fullname2 = isSecond ? document.getElementById('fullname2').value.trim() : '';
+    var email2 = isSecond ? document.getElementById('email2').value.trim() : '';
+
+    var hasErrors = false;
+
+    if (!fullname) { setFieldError('group-fullname', true); hasErrors = true; } else { setFieldError('group-fullname', false); }
+    if (!company)  { setFieldError('group-company', true);  hasErrors = true; } else { setFieldError('group-company', false); }
+    if (!email || !validateEmail(email)) { setFieldError('group-email', true); hasErrors = true; } else { setFieldError('group-email', false); }
+    if (!datum)    { setFieldError('group-datum', true);    hasErrors = true; } else { setFieldError('group-datum', false); }
+
+    if (isSecond) {
+        if (!fullname2) { setFieldError('group-fullname2', true); hasErrors = true; } else { setFieldError('group-fullname2', false); }
+        if (!email2 || !validateEmail(email2)) { setFieldError('group-email2', true); hasErrors = true; } else { setFieldError('group-email2', false); }
+    }
+
+    if (hasErrors) return;
+
+    var submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>Pošiljanje...';
+
+    var payload = JSON.stringify({
+        fullname: fullname,
+        company: company,
+        email: email,
+        datum: datum,
+        paket: paket,
+        fullname2: fullname2,
+        email2: email2,
+        timestamp: new Date().toISOString()
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', SCRIPT_URL, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('successState').style.display = 'block';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Prijavite me na delavnico';
+            alert('Pri oddaji prijave je prišlo do napake. Poskusite znova ali nas kontaktirajte na monika.kovacic@stroka.si');
+            console.error('Power Automate error:', xhr.status, xhr.responseText);
+        }
+    };
+
+    xhr.onerror = function() {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Prijavite me na delavnico';
+        alert('Prišlo je do napake pri pošiljanju. Preverite internetno povezavo ali nas kontaktirajte.');
+        console.error('Network error');
+    };
+
+    xhr.send(payload);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href="#form-anchor"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('form-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
+
+</body>
+</html>
