@@ -448,16 +448,12 @@
         .location-block {
             margin-bottom: 50px;
         }
-        .location-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
         .loc-card {
             background: var(--bg);
             border-radius: 10px;
             padding: 20px;
             border: 1.5px solid var(--border);
+            max-width: 360px;
         }
         .loc-icon {
             font-size: 24px;
@@ -758,7 +754,6 @@
         @media (max-width: 640px) {
             .learn-grid { grid-template-columns: 1fr; }
             .pricing-options { grid-template-columns: 1fr; }
-            .location-options { grid-template-columns: 1fr; }
             .price-choice { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
         }
@@ -788,7 +783,7 @@
             <p class="hero-desc">Konkretni prikazi, praktični primeri, učinkovit prompting – vse, kar potrebujete za produktivno delo s Copilotom v Outlooku, Wordu in Excelu.</p>
             <div class="hero-chips">
                 <div class="hero-chip">📅 Termin: 26. maj 2026, 9:00 - 12:00</div>
-                <div class="hero-chip">📍 Online ali v Ljubljani</div>
+                <div class="hero-chip">💻 Online</div>
                 <div class="hero-chip deadline">⏰ Akcijska cena do 25. 5. 2026</div>
             </div>
             <div class="hero-mobile-cta">
@@ -911,16 +906,11 @@
         <!-- Location -->
         <p class="section-label">Lokacija in termin</p>
         <h2>Kje in kdaj?</h2>
-        <div class="location-options" style="margin-top: 20px;">
+        <div style="margin-top: 20px;">
             <div class="loc-card">
                 <span class="loc-icon">💻</span>
                 <h4>Online</h4>
-                <p>Delavnico lahko spremljate preko spleta. Povezavo prejmete po prijavi. 9:00 - 12:00</p>
-            </div>
-            <div class="loc-card">
-                <span class="loc-icon">🏢</span>
-                <h4>V živo – Ljubljana</h4>
-                <p>Skupina stroka.si<br>Ameriška ulica 8, 1000 Ljubljana<br>Kristalna palača, 9. nadstropje (9:00 - 12:00)</p>
+                <p>Delavnico spremljate preko spleta. Povezavo prejmete po prijavi. 9:00 - 12:00</p>
             </div>
         </div>
 
@@ -965,8 +955,8 @@
                         <label for="datum">Termin delavnice <span class="req">*</span></label>
                         <select id="datum" name="datum">
                             <option value="">– Izberite termin –</option>
-                            <option value="26. 5. 2026">Torek, 26. maj 2026 – Online ali v živo (Ljubljana), 9:00 - 12:00</option>
-                            <option value="12. 5. 2026" disabled style="color: #bbb;">T̶o̶r̶e̶k̶,̶ ̶1̶2̶.̶ ̶m̶a̶j̶ ̶2̶0̶2̶6̶ ̶–̶ ̶O̶n̶l̶i̶n̶e̶ ̶a̶l̶i̶ ̶v̶ ̶ž̶i̶v̶o̶ ̶(̶L̶j̶u̶b̶l̶j̶a̶n̶a̶)̶,̶ ̶9̶:̶0̶0̶ ̶-̶ ̶1̶2̶:̶0̶0̶</option>
+                            <option value="26. 5. 2026">Torek, 26. maj 2026 – Online, 9:00 - 12:00</option>
+                            <option value="12. 5. 2026" disabled style="color: #bbb;">T̶o̶r̶e̶k̶,̶ ̶1̶2̶.̶ ̶m̶a̶j̶ ̶2̶0̶2̶6̶ ̶–̶ ̶O̶n̶l̶i̶n̶e̶,̶ ̶9̶:̶0̶0̶ ̶-̶ ̶1̶2̶:̶0̶0̶</option>
                         </select>
                         <div class="error-msg">Prosimo, izberite termin.</div>
                     </div>
